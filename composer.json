@@ -1,16 +1,8 @@
 {
-    "name": "cobregratis/boletophp",
-    "description": "Projeto Código-Aberto de Sistema de Boletos bancários em PHP",
-    "type": "library",
-    "keywords": [
-        "php",
-        "boleto",
-        "boletophp"
-    ],
-    "homepage": "http://boletophp.com.br/",
     "require": {
-        "php": ">=5.3.0",
-        "mpdf/mpdf": "^8.0",
-        "quilhasoft/jasperphp-openboleto": "dev-master"
+        "dompdf/dompdf" : "1.0.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7"
     }
 }

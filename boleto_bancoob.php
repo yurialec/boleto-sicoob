@@ -1,15 +1,17 @@
 <?php
-Error_reporting (0);
+
+Error_reporting(0);
+
 // ------------------------- DADOS DINÂMICOS DO SEU CLIENTE PARA A GERAÇÃO DO BOLETO (FIXO OU VIA GET) -------------------- //
 // Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulário c/ POST, GET ou de BD (MySql,Postgre,etc)	//
 
 // DADOS DO BOLETO PARA O SEU CLIENTE
 $dias_de_prazo_para_pagamento = 7;
 $taxa_boleto = 0;
-$data_venc = $_POST['data_venc'];//date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006"; 
+$data_venc = $_POST['data_venc']; //date("d/m/Y", time() + ($dias_de_prazo_para_pagamento * 86400));  // Prazo de X dias OU informe data: "13/04/2006"; 
 $valor_cobrado = $_POST['valor_cobrado']; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
-$valor_cobrado = str_replace(",", ".",$valor_cobrado);
-$valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
+$valor_cobrado = str_replace(",", ".", $valor_cobrado);
+$valor_boleto = number_format($valor_cobrado + $taxa_boleto, 2, ',', '');
 
 //$dadosboleto["nosso_numero"] = "08123456";  // Até 8 digitos, sendo os 2 primeiros o ano atual (Ex.: 08 se for 2008)
 
@@ -30,76 +32,54 @@ $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 // Site: www.samuca.eti.br
 // 
 
-if(!function_exists('formata_numdoc'))
-{
-	function formata_numdoc($num,$tamanho)
+if (!function_exists('formata_numdoc')) {
+	function formata_numdoc($num, $tamanho)
 	{
-		while(strlen($num)<$tamanho)
-		{
-			$num="0".$num; 
+		while (strlen($num) < $tamanho) {
+			$num = "0" . $num;
 		}
-	return $num;
+		return $num;
 	}
 }
 
-$IdDoSeuSistemaAutoIncremento = '2'; // Deve informar um numero sequencial a ser passada a função abaixo, Até 6 dígitos
+$IdDoSeuSistemaAutoIncremento = '10003'; // Deve informar um numero sequencial a ser passada a função abaixo, Até 6 dígitos
 $agencia = "4364"; // Num da agencia, sem digito
 $conta = "494"; // Num da conta, sem digito
 $convenio = "7641"; //Número do convênio indicado no frontend
 
-$NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento,7);
+$NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento, 7);
 $qtde_nosso_numero = strlen($NossoNumero);
-$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$convenio),4).formata_numdoc($NossoNumero,7);
-$cont=0;
-$calculoDv = '';
-if(!function_exists(formata_numdoc))
-{
-function formata_numdoc($num,$tamanho)
-{
-while(strlen($num)<$tamanho)
-{
-$num="0".$num;
-}
-return $num;
-}
-}
-
-$NossoNumero = formata_numdoc(12345,7); // Até 7 dígitos, número sequencial iniciado em 1 (Ex.: 1, 2...)
-$qtde_nosso_numero = strlen($NossoNumero);
-$sequencia = formata_numdoc($agencia,4).formata_numdoc(str_replace("-","",$num_contrato_con),10).formata_numdoc($NossoNumero,7);
-$cont=0;
-for($num=0;$num<=strlen($sequencia);$num++)
-{
-$cont++;
-if($cont == 1)
-{
-$constante = 3;
-}
-if($cont == 2)
-{
-$constante = 1;
-}
-if($cont == 3)
-{
-$constante = 9;
-}
-if($cont == 4)
-{
-$constante = 7;
+$sequencia = formata_numdoc($agencia, 4) . formata_numdoc(str_replace("-", "", $convenio), 10) . formata_numdoc($NossoNumero, 7);
 $cont = 0;
-}
-$calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
+
+$calculoDv = '';
+for ($num = 1; $num <= strlen($sequencia); $num++) {
+	$cont++;
+	if ($cont == 1) {
+		$constante = 3;
+	}
+	if ($cont == 2) {
+		$constante = 1;
+	}
+	if ($cont == 3) {
+		$constante = 9;
+	}
+	if ($cont == 4) {
+		$constante = 7;
+		$cont = 0;
+	}
+
+	$calculoDv = $calculoDv + (substr($sequencia, $num, 1) * $constante);
 }
 
 $Resto = $calculoDv % 11;
-if($Resto == 0 || $Resto == 1)
-{
-$Dv = 0;
+
+if ($Resto == 0 || $Resto == 1) {
+	$Dv = 0;
+} else {
+	$Dv = 11 - $Resto;
 }
-else
-{
-$Dv = 11 - $Resto;
-}
+
 
 $dadosboleto["nosso_numero"] = $NossoNumero . $Dv;
 
@@ -134,7 +114,7 @@ $dadosboleto["instrucoes4"] = "Sinduscon DF / STICOMBE DF";
 // DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 $dadosboleto["quantidade"] = "";
 $dadosboleto["valor_unitario"] = "";
-$dadosboleto["aceite"] = "N";		
+$dadosboleto["aceite"] = "N";
 $dadosboleto["especie"] = "R$";
 $dadosboleto["especie_doc"] = "DM";
 
@@ -163,3 +143,15 @@ $dadosboleto["cedente"] = "SERVICO SOCIAL DA INDUSTRIA DA CONSTRUCAO CIVIL DO DI
 // NÃO ALTERAR!
 include("include/funcoes_bancoob.php");
 include("include/layout_bancoob.php");
+
+?>
+
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<form method="POST" action="gerar_pdf.php">
+<button name="gerar_pdf">Gerar</button>
+</form>
+</html>
+

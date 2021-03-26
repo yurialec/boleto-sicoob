@@ -289,7 +289,7 @@ function modulo_11($num, $base=9, $r=0) {
 	} 
 	elseif ($r == 1){
 		$resto = $soma % 11;
-		return $resto;
+		return $resto;	
 	}
 }
 
@@ -329,9 +329,9 @@ function monta_linha_digitavel($linha) {
     $p1 = substr($linha, 34, 10);
     $p2 = modulo_10($p1);
     $p3 = "$p1$p2";
-    $p4 = substr($p3, 0, 5);
+    $p4 = substr($p3, 1, 5);
     $p5 = substr($p3, 5);
-    $campo3 = "$p4.$p5";
+    $campo3 = "$p4.$p5"; 
 
     // 4. Campo - digito verificador do codigo de barras
     $campo4 = substr($linha, 4, 1);
