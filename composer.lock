@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d2808a3bfa6804ff46e57d5daa667e4",
+    "content-hash": "7e060bfbba286e9301b874b5825a80f0",
     "packages": [
         {
             "name": "dompdf/dompdf",
@@ -162,6 +162,67 @@
                 "source": "https://github.com/PhenX/php-svg-lib/tree/master"
             },
             "time": "2019-09-11T20:02:13+00:00"
+        },
+        {
+            "name": "quilhasoft/opencnabphp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QuilhaSoft/OpenCnabPHP.git",
+                "reference": "52665f61c53f54f5906eefcb14a528203e721381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/QuilhaSoft/OpenCnabPHP/zipball/52665f61c53f54f5906eefcb14a528203e721381",
+                "reference": "52665f61c53f54f5906eefcb14a528203e721381",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "^6.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CnabPHP\\": [
+                        "src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rogerio Muniz de Castro",
+                    "email": "rogerio@quilhasoft.com.br"
+                }
+            ],
+            "description": "Biblioteca multibanco para geração e leitura de arquivos Cnab de remessa e retorno",
+            "keywords": [
+                "boleto",
+                "bradesco",
+                "caixa",
+                "cnab240",
+                "cnab400",
+                "cnabphp",
+                "itaú",
+                "remessa",
+                "retorno",
+                "santander",
+                "sicoob",
+                "uniprime"
+            ],
+            "support": {
+                "issues": "https://github.com/QuilhaSoft/OpenCnabPHP/issues",
+                "source": "https://github.com/QuilhaSoft/OpenCnabPHP/tree/master"
+            },
+            "time": "2021-03-12T13:04:40+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -1937,7 +1998,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "quilhasoft/opencnabphp": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

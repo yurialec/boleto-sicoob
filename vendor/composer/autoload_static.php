@@ -24,6 +24,7 @@ class ComposerStaticInit81e24db08c87f83b3bcc0d6f8fc5c0c3
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Svg\\' => 4,
+            'Source\\' => 7,
         ),
         'P' => 
         array (
@@ -38,6 +39,10 @@ class ComposerStaticInit81e24db08c87f83b3bcc0d6f8fc5c0c3
             'Dompdf\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
+        ),
+        'C' => 
+        array (
+            'CnabPHP\\' => 8,
         ),
     );
 
@@ -60,6 +65,10 @@ class ComposerStaticInit81e24db08c87f83b3bcc0d6f8fc5c0c3
         array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
         ),
+        'Source\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Source',
+        ),
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
@@ -79,6 +88,10 @@ class ComposerStaticInit81e24db08c87f83b3bcc0d6f8fc5c0c3
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'CnabPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/quilhasoft/opencnabphp/src',
         ),
     );
 

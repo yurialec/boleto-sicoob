@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'eeb4dc4b94152c1092c1eea0278fa5573e583129',
+    'reference' => '911b734820174b619d3cdd4dcc343a38314e26be',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'eeb4dc4b94152c1092c1eea0278fa5573e583129',
+      'reference' => '911b734820174b619d3cdd4dcc343a38314e26be',
     ),
     'doctrine/instantiator' => 
     array (
@@ -208,6 +208,16 @@ private static $installed = array (
       array (
       ),
       'reference' => 'f9756fd4f43f014cb2dca98deeaaa8ce5500a36e',
+    ),
+    'quilhasoft/opencnabphp' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+        0 => '9999999-dev',
+      ),
+      'reference' => '52665f61c53f54f5906eefcb14a528203e721381',
     ),
     'sabberworm/php-css-parser' => 
     array (

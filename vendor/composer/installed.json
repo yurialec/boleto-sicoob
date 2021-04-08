@@ -1102,6 +1102,70 @@
             "install-path": "../phpunit/phpunit-mock-objects"
         },
         {
+            "name": "quilhasoft/opencnabphp",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QuilhaSoft/OpenCnabPHP.git",
+                "reference": "52665f61c53f54f5906eefcb14a528203e721381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/QuilhaSoft/OpenCnabPHP/zipball/52665f61c53f54f5906eefcb14a528203e721381",
+                "reference": "52665f61c53f54f5906eefcb14a528203e721381",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "^6.5"
+            },
+            "time": "2021-03-12T13:04:40+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "CnabPHP\\": [
+                        "src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rogerio Muniz de Castro",
+                    "email": "rogerio@quilhasoft.com.br"
+                }
+            ],
+            "description": "Biblioteca multibanco para geração e leitura de arquivos Cnab de remessa e retorno",
+            "keywords": [
+                "boleto",
+                "bradesco",
+                "caixa",
+                "cnab240",
+                "cnab400",
+                "cnabphp",
+                "itaú",
+                "remessa",
+                "retorno",
+                "santander",
+                "sicoob",
+                "uniprime"
+            ],
+            "support": {
+                "issues": "https://github.com/QuilhaSoft/OpenCnabPHP/issues",
+                "source": "https://github.com/QuilhaSoft/OpenCnabPHP/tree/master"
+            },
+            "install-path": "../quilhasoft/opencnabphp"
+        },
+        {
             "name": "sabberworm/php-css-parser",
             "version": "8.3.1",
             "version_normalized": "8.3.1.0",

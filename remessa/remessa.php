@@ -7,7 +7,7 @@
 
 Class RemessaSicredi{
 	// 14 carácter / Cnpj do Cedente
-	private $cnpjCedente  = '3656261000152';
+	private $cnpjCedente  = '03656261000152';
 	// 04 carácter / Agência do Cedente
 	private $agCedente    = '4364'; 
 	// 05 carácter / Codigo do Cedente
