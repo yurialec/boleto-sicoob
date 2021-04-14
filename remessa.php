@@ -12,13 +12,20 @@
 	<script src="js/jquery.mask.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#data_vencimento').mask('00/00/0000');
-			$('#data_emissao').mask('00/00/0000');
-			$('#valor').mask("#.##0,00", {
+			//$('#data_vencimento').mask('0000-00-00');
+			//$('#data_emissao').mask('0000-00-00');
+			$('#valor').mask("#.##0.00", {
 				reverse: true
 			});
 			$('#numero_inscricao').mask('00.000.000/0000-00');
 			$('#cep_pagador').mask('00000-000');
+			$('#uf_pagador').mask('SS', {
+				translation: {
+					'SS': {
+						pattern: /[A-Z]/
+					}
+				}
+			})
 		})
 	</script>
 </head>
@@ -37,22 +44,33 @@
 					<th>Dados do boleto</th>
 				</tr>
 
+				<!-- <tr>
+					<th><input type="date" name="data_emissao" id="data_emissao" placeholder="Emissão" > => Emissão</th>
+				</tr> -->
 
 				<tr>
-					<th><input type="text" name="seu_numero" id="seu_numero" placeholder="Seu número"></th>
+					<th><input type="date" name="data_vencimento" id="data_vencimento" placeholder="Vencimento"> => Vencimento</th>
 				</tr>
 
 				<tr>
-					<th><input type="text" name="data_vencimento" id="data_vencimento" placeholder="Vencimento"></th>
+					<th><input type="hidden" name="data_juros" id="data_juros" placeholder="Data de Juros"></th>
+				</tr>
+
+				<tr>
+					<th><input type="hidden" name="data_multa" id="data_multa" placeholder="Data de multa"></th>
 				</tr>
 
 				<tr>
 					<th><input type="text" name="valor" id="valor" placeholder="valor"></th>
 				</tr>
 
-				<tr>
-					<th><input type="text" name="data_emissao" id="data_emissao" placeholder="Data de emissão"></th>
-				</tr>
+				<!-- <tr>
+					<th><input type="text" name="seu_numero" id="seu_numero" placeholder="Seu número"></th>
+				</tr> -->
+
+
+
+				
 
 
 				<tr>
@@ -87,7 +105,7 @@
 					<th><input type="text" name="uf_pagador" id="uf_pagador" placeholder="UF"></th>
 				</tr>
 
-				<tr>
+				<!-- <tr>
 					<th>Instruções</th>
 				</tr>
 
@@ -102,7 +120,7 @@
 				</tr>
 				<tr>
 					<th><input type="text" name="mensagem_sc_4" id="mensagem_sc_4" placeholder="Instrução 4"></th>
-				</tr>
+				</tr> -->
 
 				<tr>
 					<th><button type="submit" class="btn btn-success btn-lg btn-block">Gerar</button><button type="reset" class="btn btn-warning btn-lg btn-block">Reset</button></th>
